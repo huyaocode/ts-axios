@@ -34,7 +34,7 @@ router.get('/simple/get', function(req, res) {
 
 app.use(router)
 
-const port = process.env.PORT || 8080
+const port = 8888
 module.exports = app.listen(port, () => {
-  console.log(`Server listening on http://localhost:${port}, Ctrl+C to stop`)
+  console.log(`Server listening on http://localhost:${port} , Ctrl+C to stop`)
 })
