@@ -12,129 +12,129 @@ module.exports = {
         title: '初识 TypeScript',
         collapsable: false,
         children: [
-          ['chapter1/', 'Introduction'],
-          'chapter1/install',
-          'chapter1/start'
+          ['初识TS/', 'Introduction'],
+          '初识TS/install',
+          '初识TS/start'
         ]
       },
       {
-        title: 'TypeScript 常用语法',
+        title: '常用语法',
         collapsable: false,
         children: [
-          'chapter2/type',
-          'chapter2/declare',
-          'chapter2/interface',
-          'chapter2/class',
-          'chapter2/function',
-          'chapter2/generic',
-          'chapter2/inference',
-          'chapter2/advance'
+          '常用语法/type',
+          '常用语法/declare',
+          '常用语法/interface',
+          '常用语法/class',
+          '常用语法/function',
+          '常用语法/generic',
+          '常用语法/inference',
+          '常用语法/advance'
         ]
       },
       {
         'title': 'ts-axios 项目初始化',
         collapsable: false,
         children: [
-          'chapter3/require',
-          'chapter3/init',
-          'chapter3/base'
+          '项目初始化/require',
+          '项目初始化/init',
+          '项目初始化/base'
         ]
       },
       {
         'title': 'ts-axios 基础功能实现',
         collapsable: false,
         children: [
-          'chapter4/url',
-          'chapter4/data',
-          'chapter4/header',
-          'chapter4/response',
-          'chapter4/response-header',
-          'chapter4/response-data'
+          '基础功能/url',
+          '基础功能/data',
+          '基础功能/header',
+          '基础功能/response',
+          '基础功能/response-header',
+          '基础功能/response-data'
         ]
       },
       {
         'title': 'ts-axios 异常情况处理',
         collapsable: false,
         children: [
-          'chapter5/error',
-          'chapter5/enhance'
+          '异常处理/error',
+          '异常处理/enhance'
         ]
       },
       {
         'title': 'ts-axios 接口扩展',
         collapsable: false,
         children: [
-          'chapter6/extend',
-          'chapter6/overload',
-          'chapter6/generic'
+          '接口扩展/extend',
+          '接口扩展/overload',
+          '接口扩展/generic'
         ]
       },
       {
         'title': 'ts-axios 拦截器实现',
         collapsable: false,
         children: [
-          'chapter7/interceptor'
+          '拦截器/interceptor'
         ]
       },
       {
         'title': 'ts-axios 配置化实现',
         collapsable: false,
         children: [
-          'chapter8/merge',
-          'chapter8/transform',
-          'chapter8/create'
+          '配置化/merge',
+          '配置化/transform',
+          '配置化/create'
         ]
       },
       {
         'title': 'ts-axios 取消功能实现',
         collapsable: false,
         children: [
-          'chapter9/cancel'
+          '取消功能/cancel'
         ]
       },
       {
         'title': 'ts-axios 更多功能实现',
         collapsable: false,
         children: [
-          'chapter10/withCredentials',
-          'chapter10/xsrf',
-          'chapter10/upload-download',
-          'chapter10/auth',
-          'chapter10/validateStatus',
-          'chapter10/paramsSerializer',
-          'chapter10/baseURL',
-          'chapter10/static'
+          '更多功能/withCredentials',
+          '更多功能/xsrf',
+          '更多功能/upload-download',
+          '更多功能/auth',
+          '更多功能/validateStatus',
+          '更多功能/paramsSerializer',
+          '更多功能/baseURL',
+          '更多功能/static'
         ]
       },
       {
         'title': 'ts-axios 单元测试',
         collapsable: false,
         children: [
-          'chapter11/preface',
-          'chapter11/jest',
-          'chapter11/helpers',
-          'chapter11/requests',
-          'chapter11/headers',
-          'chapter11/instance',
-          'chapter11/interceptor',
-          'chapter11/mergeConfig',
-          'chapter11/cancel',
-          'chapter11/more'
+          '单元测试/preface',
+          '单元测试/jest',
+          '单元测试/helpers',
+          '单元测试/requests',
+          '单元测试/headers',
+          '单元测试/instance',
+          '单元测试/interceptor',
+          '单元测试/mergeConfig',
+          '单元测试/cancel',
+          '单元测试/more'
         ]
       },
       {
         'title': 'ts-axios 部署与发布',
         collapsable: false,
         children: [
-          'chapter12/build-deploy',
-          'chapter12/demo'
+          '部署发布/build-deploy',
+          '部署发布/demo'
         ]
       },
       {
         'title': '课程总结',
         collapsable: false,
         children: [
-          'chapter13/summary'
+          '总结/summary'
         ]
       }
     ]

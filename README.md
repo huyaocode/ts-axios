@@ -4,7 +4,7 @@
 文档存储在`/docs`中，使用方式：
 ```bash
 # 安装 vuepress
-cnpm install vuepress -g
+npm install vuepress -g
 # 运行文档
 vuepress dev docs
 ```
