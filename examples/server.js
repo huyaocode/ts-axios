@@ -26,10 +26,16 @@ app.use(bodyParser.urlencoded({ extended: true }))
 
 const router = express.Router()
 
+// 1_simple
 router.get('/simple/get', function(req, res) {
   res.json({
     msg: `hello world`
   })
+})
+
+// 2_base
+router.get('/base/get', function(req, res) {
+  res.json(req.query)
 })
 
 app.use(router)
