@@ -33,9 +33,27 @@ router.get('/simple/get', function(req, res) {
   })
 })
 
-// 2_base
-router.get('/base/get', function(req, res) {
+// 2_base - get
+.get('/base/get', function(req, res) {
   res.json(req.query)
+})
+
+// 2_base - post
+.post('/base/post', function(req, res) {
+  res.json(req.body)
+})
+
+.post('/base/buffer', function(req, res) {
+  let msg = []
+  req.on('data', (chunk) => {
+    if (chunk) {
+      msg.push(chunk)
+    }
+  })
+  req.on('end', () => {
+    let buf = Buffer.concat(msg)
+    res.json(buf.toJSON())
+  })
 })
 
 app.use(router)
