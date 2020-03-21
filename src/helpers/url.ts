@@ -11,6 +11,11 @@ function encode(val: string): string {
     .replace(/%5D/gi, ']')
 }
 
+/**
+ * 工具函数，把 params 拼接到 url 上
+ * @param url
+ * @param params
+ */
 export function buildURL(url: string, params?: any): string {
   if (!params) {
     return url

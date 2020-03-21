@@ -1,6 +1,9 @@
 import { isPlainObject } from './util'
 
-// 规范化写入 header
+/**
+ * 规范化写入 header
+ * 比如将 'content-type' 转为 'Content-Type'
+ */
 function normalizeHeaderName(headers: any, normalizedName: string): void {
   if (!headers) {
     return
@@ -13,6 +16,11 @@ function normalizeHeaderName(headers: any, normalizedName: string): void {
   })
 }
 
+/**
+ * 添加默认的header，如content-type
+ * @param headers
+ * @param data
+ */
 export function processHeaders(headers: any, data: any): any {
   normalizeHeaderName(headers, 'Content-Type')
   if (isPlainObject(data)) {
@@ -21,4 +29,25 @@ export function processHeaders(headers: any, data: any): any {
     }
   }
   return headers
+}
+
+/**
+ * 解析响应 headers 为对象
+ */
+export function parseHeaders(headers: string): any {
+  let parsed = Object.create(null)
+  if (!headers) {
+    return parsed
+  }
+
+  headers.split('\r\n').forEach(line => {
+    let [key, value = ''] = line.split(':')
+    key = key.trim().toLocaleLowerCase()
+    if (!key) {
+      return
+    }
+    parsed[key] = value.trim()
+  })
+
+  return parsed
 }
