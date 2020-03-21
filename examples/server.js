@@ -56,6 +56,27 @@ router.get('/simple/get', function(req, res) {
   })
 })
 
+// 处理错误
+.get('/error/get', function(req, res) {
+  if (Math.random() > 0.5) {
+    res.json({
+      msg: `hello world`
+    })
+  } else {
+    res.status(500)
+    res.end()
+  }
+})
+
+// 超时错误
+.get('/error/timeout', function(req, res) {
+  setTimeout(() => {
+    res.json({
+      msg: `hello world`
+    })
+  }, 3000)
+})
+
 app.use(router)
 
 const port = 8888
