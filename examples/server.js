@@ -77,6 +77,42 @@ router.get('/simple/get', function(req, res) {
   }, 3000)
 })
 
+
+.post('/extend/post', function(req, res) {
+  res.json(req.body)
+})
+.get('/extend/get', function(req, res) {
+  res.json(req.query)
+})
+.options('/extend/options', function(req, res) {
+  res.json(req.body)
+})
+.delete('/extend/delete', function(req, res) {
+  res.json(req.body)
+})
+.head('/extend/head', function(req, res) {
+  res.json(req.query)
+})
+
+.put('/extend/put', function(req, res) {
+  res.json(req.body)
+})
+
+.patch('/extend/patch', function(req, res) {
+  res.json('patch')
+})
+
+.get('/extend/user', function(req, res){
+  res.json({
+    code: 0,
+    message: 'ok',
+    result:{
+      name: 'jack',
+      age: 18
+    }
+  })
+})
+
 app.use(router)
 
 const port = 8888

@@ -1,42 +1,23 @@
-import { AxiosRequestConfig, AxiosPromise, AxiosResponse } from './types'
-import xhr from './xhr'
-import { buildURL } from './helpers/url'
-import { transformRequest, transformResponse } from './helpers/data'
-import { processHeaders } from './helpers/header'
+import { AxiosInstance } from './types'
+import Axios from './core/Axios'
+import { extend } from './helpers/util'
 
-function axios(config: AxiosRequestConfig): AxiosPromise {
-  processConfig(config)
-  return xhr(config).then(res => transformResponseData(res))
-}
 /**
- * 将 param 拼接进 url
- * 将 data 序列化
+ * 混合对象：instance 本身是一个函数，又拥有了 Axios 类的所有原型和实例属性，最终把这个 instance 返回。
+ * 由于这里 TypeScript 不能正确推断 instance 的类型，我们把它断言成 AxiosInstance 类型。
+ *
+ * 这样我们就可以通过 createInstance 工厂函数创建了 axios，
+ * 当直接调用 axios 方法就相当于执行了 Axios 类的 request 方法发送请求，当然我们也可以调用 axios.get、axios.post 等方法。
  */
-function processConfig(config: AxiosRequestConfig) {
-  config.url = transformURL(config)
-  // 必须要先处理 headers 再处理 data
-  // 因为 headers 会定义数据的类型，比如描述 content-type: json
-  config.headers = transformHeaders(config)
-  config.data = transformRequestData(config)
+function createInstance(): AxiosInstance {
+  const context = new Axios()
+  const instance = Axios.prototype.request.bind(context)
+
+  extend(instance, context)
+
+  return instance as AxiosInstance
 }
 
-function transformURL(config: AxiosRequestConfig): string {
-  const { url, params } = config
-  return buildURL(url, params)
-}
-
-function transformRequestData(config: AxiosRequestConfig): any {
-  return transformRequest(config.data)
-}
-
-function transformHeaders(config: AxiosRequestConfig): any {
-  const { headers = {}, data } = config
-  return processHeaders(headers, data)
-}
-
-function transformResponseData(res: AxiosResponse): AxiosResponse {
-  res.data = transformResponse(res.data)
-  return res
-}
+const axios = createInstance()
 
 export default axios
